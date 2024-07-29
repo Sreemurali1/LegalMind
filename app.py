@@ -18,7 +18,6 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-
 # Add tabs
 tab1, tab2 = st.tabs(["About This Project", "Response"])
 
@@ -28,9 +27,8 @@ with tab1:
     **LegalMind** is an AI-powered legal assistant designed to help you with your legal queries. Useful for law students, educators, and anyone interested in gaining legal insights.
     Using advanced natural language processing models, this tool can understand and provide responses to a wide range of legal questions.
 
-
     ### How to Use:
-    1. Navigate to the 'Query & Response' tab.
+    1. Navigate to the 'Response' tab.
     2. Enter your legal question or topic in the provided text area.
     3. Click on 'Get Response' to receive an AI-generated response.
     4. Ensure your question is clear and concise for the best results.
@@ -40,7 +38,11 @@ with tab1:
 
 # Query & Response tab
 with tab2:
-    user_input = st.text_area("Enter your legal question or topic:")
+    user_input = st.text_area(
+        "Enter your legal question:",
+        value="Example: What are the key principles of the Indian Contract Act, 1872?",
+        height=150
+    )
 
     if st.button("Get Response"):
         if user_input:
